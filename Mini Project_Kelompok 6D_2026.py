@@ -40,4 +40,63 @@ def baca_file():
 
     return data
 
+def validasi_data(data):
+    masalah = []
+    id_ditemukan = set()
+    for nomor, baris in enumerate(data, start=2):
+        for kolom in KOLOM_WAJIB:
+            if not str(baris.get(kolom, "")).strip():
+                masalah.append(f"Baris {nomor}: {kolom} kosong.")
+        trip_id = str(baris.get("trip_id", "")).strip()
+
+        if trip_id in id_ditemukan:
+            masalah.append(f"Baris {nomor}: trip_id duplikat.")
+
+        elif trip_id:
+            id_ditemukan.add(trip_id)
+
+        for kolom in KOLOM_ANGKA:
+            nilai = angka(baris.get(kolom, ""))
+
+            if nilai is None:
+                masalah.append(f"Baris {nomor}: {kolom} bukan angka valid.")
+
+            elif nilai < 0:
+                masalah.append(f"Baris {nomor}: {kolom} tidak boleh negatif.")
+
+        for kolom in ["transit_efficiency_index", "crowding_discomfort_score"]:
+            nilai = angka(baris.get(kolom, ""))
+            if nilai is not None and not 0 <= nilai <= 10:
+                masalah.append(f"Baris {nomor}: {kolom} harus bernilai 0-10.")
+
+        jadwal = angka(baris.get("scheduled_duration_minutes", ""))
+        aktual = angka(baris.get("actual_duration_minutes", ""))
+        terlambat = angka(baris.get("delay_minutes", ""))
+
+        if None not in (jadwal, aktual, terlambat):
+            if round(aktual - jadwal, 2) != round(terlambat, 2):
+                masalah.append(f"Baris {nomor}: nilai delay tidak sesuai.")
+    if masalah:
+        print("Data belum valid. Ditemukan", len(masalah), "masalah:")
+        for item in masalah[:25]:
+            print("-", item)
+        if len(masalah) > 25:
+            print("Masih ada", len(masalah) - 25, "masalah lainnya.")
+        return False
+    print("Seluruh data dinyatakan valid.")
+    return True
+
+def angka(nilai):
+    teks = str(nilai).strip()
+    if not teks:
+        return None
+    
+    bersih = teks[1:] if teks.startswith("-") else teks
+    if not bersih or bersih.count(".") > 1:
+        return None
+    
+    if not bersih.replace(".", "").isdigit():
+        return None
+    
+    return float(teks)
 
