@@ -1,0 +1,71 @@
+trip_id,transit_mode,origin_station,destination_station,scheduled_duration_minutes,actual_duration_minutes,delay_minutes,ticket_fare_idr,peak_hour_category,transit_efficiency_index,crowding_discomfort_score,fare_to_speed_ratio,service_reliability_tier
+TRP_2026_05472,KRL Commuter Line,Cikarang,Manggarai,60,67,7,5000,Morning Rush 06:00-09:00,5.78,8.18,133,Tier 3 - Moderate Congestion Delay
+TRP_2026_09108,KRL Commuter Line,Rangkasbitung,Tanah Abang,115,120,5,7000,Morning Rush 06:00-09:00,5.9,9.6,174.1,Tier 3 - Moderate Congestion Delay
+TRP_2026_06222,TransJakarta BRT,Kalideres,Monas,50,57,7,3500,Morning Rush 06:00-09:00,4.86,6.74,190.2,Tier 3 - Moderate Congestion Delay
+TRP_2026_06990,LRT Jabodebek,Harjamukti,Dukuh Atas,45,50,5,17000,Morning Rush 06:00-09:00,6.69,6.13,485.7,Tier 3 - Moderate Congestion Delay
+TRP_2026_07440,TransJakarta BRT,Harmoni,Lebak Bulus,55,68,13,3500,Morning Rush 06:00-09:00,3.44,6.95,207.1,Tier 4 - Severe Disruption Breach
+TRP_2026_07251,MRT Jakarta,Blok M,Bundaran HI,15,15,0,8000,Morning Rush 06:00-09:00,9.19,4.64,243.9,Tier 1 - SOTA On-Time Master
+TRP_2026_07905,KRL Commuter Line,Manggarai,Tanah Abang,15,20,5,3000,Morning Rush 06:00-09:00,6.44,6.66,95.2,Tier 3 - Moderate Congestion Delay
+TRP_2026_03819,TransJakarta BRT,Ragunan,Dukuh Atas,40,60,20,3500,Morning Rush 06:00-09:00,1.91,6.55,250,Tier 4 - Severe Disruption Breach
+TRP_2026_06448,KRL Commuter Line,Manggarai,Bekasi,35,40,5,3000,Morning Rush 06:00-09:00,6.39,7.25,81.5,Tier 3 - Moderate Congestion Delay
+TRP_2026_03294,Whoosh KCIC,Tegalluar,Halim,45,45,0,250000,Off-Peak Regular,10,3.79,1317.9,Tier 1 - SOTA On-Time Master
+TRP_2026_03242,TransJakarta BRT,Kampung Melayu,Tanah Abang,35,43,8,3500,Off-Peak Regular,4.71,4,205.9,Tier 3 - Moderate Congestion Delay
+TRP_2026_07608,MRT Jakarta,Senayan,Bundaran HI,10,10,0,5000,Off-Peak Regular,9.23,3.12,151.5,Tier 1 - SOTA On-Time Master
+TRP_2026_07634,KRL Commuter Line,Bogor,Jakarta Kota,90,94,4,6000,Off-Peak Regular,6.3,5.91,149.3,Tier 2 - Punctual Regular
+TRP_2026_03334,TransJakarta BRT,Ragunan,Dukuh Atas,40,46,6,3500,Off-Peak Regular,5.15,2.92,191.3,Tier 3 - Moderate Congestion Delay
+TRP_2026_06599,KRL Commuter Line,Tanah Abang,Serpong,45,48,3,4000,Off-Peak Regular,6.81,3.76,101.5,Tier 2 - Punctual Regular
+TRP_2026_04992,Whoosh KCIC,Padalarang,Halim,30,30,0,250000,Off-Peak Regular,10,3.55,1317.2,Tier 1 - SOTA On-Time Master
+TRP_2026_09779,KRL Commuter Line,Manggarai,Bekasi,35,44,9,3000,Evening Rush 16:30-19:30,5.43,8.1,89.8,Tier 3 - Moderate Congestion Delay
+TRP_2026_09200,Whoosh KCIC,Halim,Karawang,15,15,0,200000,Evening Rush 16:30-19:30,10,5.38,1054.9,Tier 1 - SOTA On-Time Master
+TRP_2026_09274,KRL Commuter Line,Tanah Abang,Sudimara,30,41,11,3000,Evening Rush 16:30-19:30,4.97,6.54,97.7,Tier 4 - Severe Disruption Breach
+TRP_2026_09719,KRL Commuter Line,Tanah Abang,Rangkasbitung,115,120,5,7000,Evening Rush 16:30-19:30,5.9,8.95,174.1,Tier 3 - Moderate Congestion Delay
+TRP_2026_03707,KRL Commuter Line,Bogor,Manggarai,75,84,9,5000,Evening Rush 16:30-19:30,5.22,8.02,133.3,Tier 3 - Moderate Congestion Delay
+TRP_2026_04152,Whoosh KCIC,Halim,Padalarang,30,30,0,250000,Evening Rush 16:30-19:30,10,5.75,1317.2,Tier 1 - SOTA On-Time Master
+TRP_2026_01973,MRT Jakarta,Senayan,Bundaran HI,10,10,0,5000,Evening Rush 16:30-19:30,9.23,5.51,151.5,Tier 1 - SOTA On-Time Master
+TRP_2026_03519,KRL Commuter Line,Tanah Abang,Serpong,45,48,3,4000,Evening Rush 16:30-19:30,6.81,7.42,101.5,Tier 2 - Punctual Regular
+TRP_2026_08735,MRT Jakarta,Bundaran HI,Lebak Bulus,30,30,0,14000,Late-Night Transit,9.1,2.43,424.2,Tier 1 - SOTA On-Time Master
+TRP_2026_04867,LRT Jabodebek,Cikunir,Dukuh Atas,35,38,3,15000,Late-Night Transit,7.23,2.39,416.7,Tier 2 - Punctual Regular
+TRP_2026_09631,MRT Jakarta,Blok M,Bundaran HI,15,17,2,8000,Morning Rush 06:00-09:00,8.68,5.78,276.8,Tier 2 - Punctual Regular
+TRP_2026_06436,KRL Commuter Line,Cikarang,Manggarai,60,67,7,5000,Morning Rush 06:00-09:00,5.78,8.23,133,Tier 3 - Moderate Congestion Delay
+TRP_2026_05016,KRL Commuter Line,Manggarai,Bekasi,35,43,8,3000,Morning Rush 06:00-09:00,5.67,7.7,87.7,Tier 3 - Moderate Congestion Delay
+TRP_2026_05775,KRL Commuter Line,Bogor,Manggarai,75,86,11,5000,Morning Rush 06:00-09:00,4.76,7.67,136.6,Tier 4 - Severe Disruption Breach
+TRP_2026_01644,KRL Commuter Line,Tanah Abang,Sudimara,30,39,9,3000,Morning Rush 06:00-09:00,5.44,6.28,92.9,Tier 3 - Moderate Congestion Delay
+TRP_2026_01664,KRL Commuter Line,Tanah Abang,Serpong,45,48,3,4000,Morning Rush 06:00-09:00,6.81,6.29,101.5,Tier 2 - Punctual Regular
+TRP_2026_09480,KRL Commuter Line,Jakarta Kota,Bogor,90,92,2,6000,Morning Rush 06:00-09:00,6.76,8.27,146,Tier 2 - Punctual Regular
+TRP_2026_03360,KRL Commuter Line,Manggarai,Bogor,75,87,12,5000,Morning Rush 06:00-09:00,4.52,8.15,138.1,Tier 4 - Severe Disruption Breach
+TRP_2026_04242,Whoosh KCIC,Halim,Karawang,15,16,1,200000,Morning Rush 06:00-09:00,10,4.49,1124.9,Tier 1 - SOTA On-Time Master
+TRP_2026_06748,KRL Commuter Line,Manggarai,Bekasi,35,37,2,3000,Morning Rush 06:00-09:00,7.11,6.55,75.6,Tier 2 - Punctual Regular
+TRP_2026_05402,KRL Commuter Line,Tanah Abang,Rangkasbitung,115,121,6,7000,Morning Rush 06:00-09:00,5.67,9.62,175.4,Tier 3 - Moderate Congestion Delay
+TRP_2026_08000,TransJakarta BRT,Kota,Blok M,45,50,5,3500,Off-Peak Regular,5.35,3.47,186.2,Tier 3 - Moderate Congestion Delay
+TRP_2026_03801,KRL Commuter Line,Manggarai,Bekasi,35,37,2,3000,Off-Peak Regular,7.11,3.12,75.6,Tier 2 - Punctual Regular
+TRP_2026_08512,LRT Jabodebek,Harjamukti,Dukuh Atas,45,49,4,17000,Off-Peak Regular,6.93,3.94,474.9,Tier 2 - Punctual Regular
+TRP_2026_09984,Whoosh KCIC,Karawang,Halim,15,15,0,200000,Off-Peak Regular,10,3.47,1054.9,Tier 1 - SOTA On-Time Master
+TRP_2026_02789,TransJakarta BRT,Pulo Gebang,Kampung Melayu,50,51,1,3500,Off-Peak Regular,6.25,3.71,169.9,Tier 1 - SOTA On-Time Master
+TRP_2026_06926,TransJakarta BRT,Blok M,Kota,45,46,1,3500,Off-Peak Regular,6.28,4.69,170.7,Tier 1 - SOTA On-Time Master
+TRP_2026_02287,TransJakarta BRT,Lebak Bulus,Harmoni,55,61,6,3500,Evening Rush 16:30-19:30,5.06,6.93,185.2,Tier 3 - Moderate Congestion Delay
+TRP_2026_00994,MRT Jakarta,Bundaran HI,Blok M,15,17,2,8000,Evening Rush 16:30-19:30,8.68,5.66,276.8,Tier 2 - Punctual Regular
+TRP_2026_00996,KRL Commuter Line,Manggarai,Bogor,75,84,9,5000,Evening Rush 16:30-19:30,5.22,7.19,133.3,Tier 3 - Moderate Congestion Delay
+TRP_2026_02323,LRT Jabodebek,Cikunir,Dukuh Atas,35,40,5,15000,Evening Rush 16:30-19:30,6.75,5.48,438.6,Tier 3 - Moderate Congestion Delay
+TRP_2026_01495,MRT Jakarta,Bundaran HI,Blok M,15,16,1,8000,Evening Rush 16:30-19:30,8.93,4.9,260.6,Tier 1 - SOTA On-Time Master
+TRP_2026_07185,MRT Jakarta,Bundaran HI,Senayan,10,10,0,5000,Evening Rush 16:30-19:30,9.23,4.28,151.5,Tier 1 - SOTA On-Time Master
+TRP_2026_08781,MRT Jakarta,Senayan,Bundaran HI,10,10,0,5000,Evening Rush 16:30-19:30,9.23,5.39,151.5,Tier 1 - SOTA On-Time Master
+TRP_2026_07139,KRL Commuter Line,Tanah Abang,Sudimara,30,37,7,3000,Evening Rush 16:30-19:30,5.92,7.92,88,Tier 3 - Moderate Congestion Delay
+TRP_2026_07460,KRL Commuter Line,Rangkasbitung,Tanah Abang,115,115,0,7000,Evening Rush 16:30-19:30,7.06,9.54,166.7,Tier 1 - SOTA On-Time Master
+TRP_2026_08076,KRL Commuter Line,Manggarai,Tanah Abang,15,19,4,3000,Late-Night Transit,6.69,2.32,90.4,Tier 2 - Punctual Regular
+TRP_2026_04994,KRL Commuter Line,Tanah Abang,Rangkasbitung,115,120,5,7000,Morning Rush 06:00-09:00,5.9,9.32,174.1,Tier 3 - Moderate Congestion Delay
+TRP_2026_07825,KRL Commuter Line,Cikarang,Manggarai,60,60,0,5000,Morning Rush 06:00-09:00,7.43,6.96,119,Tier 1 - SOTA On-Time Master
+TRP_2026_08965,KRL Commuter Line,Tanah Abang,Rangkasbitung,115,119,4,7000,Morning Rush 06:00-09:00,6.14,9.58,172.4,Tier 2 - Punctual Regular
+TRP_2026_08889,KRL Commuter Line,Manggarai,Bogor,75,85,10,5000,Morning Rush 06:00-09:00,4.99,8.22,134.8,Tier 4 - Severe Disruption Breach
+TRP_2026_00445,KRL Commuter Line,Manggarai,Bogor,75,84,9,5000,Morning Rush 06:00-09:00,5.22,7.4,133.3,Tier 3 - Moderate Congestion Delay
+TRP_2026_05618,MRT Jakarta,Lebak Bulus,Bundaran HI,30,30,0,14000,Morning Rush 06:00-09:00,9.1,5.8,424.2,Tier 1 - SOTA On-Time Master
+TRP_2026_09662,TransJakarta BRT,Kalideres,Monas,50,56,6,3500,Morning Rush 06:00-09:00,5.09,7,186.2,Tier 3 - Moderate Congestion Delay
+TRP_2026_08170,LRT Jabodebek,Ciracas,Dukuh Atas,38,38,0,14000,Morning Rush 06:00-09:00,7.93,6.12,359,Tier 1 - SOTA On-Time Master
+TRP_2026_04976,KRL Commuter Line,Tanah Abang,Rangkasbitung,115,120,5,7000,Morning Rush 06:00-09:00,5.9,9,174.1,Tier 3 - Moderate Congestion Delay
+TRP_2026_01851,LRT Jabodebek,Dukuh Atas,Jatimulya,50,52,2,20000,Morning Rush 06:00-09:00,7.38,5.06,533.3,Tier 2 - Punctual Regular
+TRP_2026_06570,KRL Commuter Line,Bogor,Manggarai,75,86,11,5000,Morning Rush 06:00-09:00,4.76,8.15,136.6,Tier 4 - Severe Disruption Breach
+TRP_2026_00222,KRL Commuter Line,Rangkasbitung,Tanah Abang,115,118,3,7000,Morning Rush 06:00-09:00,6.37,8.88,171.1,Tier 2 - Punctual Regular
+TRP_2026_09272,MRT Jakarta,Lebak Bulus,Bundaran HI,30,30,0,14000,Morning Rush 06:00-09:00,9.1,5.61,424.2,Tier 1 - SOTA On-Time Master
+TRP_2026_05174,MRT Jakarta,Senayan,Bundaran HI,10,10,0,5000,Morning Rush 06:00-09:00,9.23,5.5,151.5,Tier 1 - SOTA On-Time Master
+TRP_2026_08935,KRL Commuter Line,Tanah Abang,Sudimara,30,41,11,3000,Morning Rush 06:00-09:00,4.97,6.7,97.7,Tier 4 - Severe Disruption Breach
+TRP_2026_00128,KRL Commuter Line,Manggarai,Bekasi,35,37,2,3000,Morning Rush 06:00-09:00,7.11,6.65,75.6,Tier 2 - Punctual Regular
+TRP_2026_08050,Whoosh KCIC,Tegalluar,Halim,45,47,2,250000,Morning Rush 06:00-09:00,10,6.18,1375.9,Tier 2 - Punctual Regular
