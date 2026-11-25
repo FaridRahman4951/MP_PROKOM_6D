@@ -100,3 +100,46 @@ def angka(nilai):
     
     return float(teks)
 
+def register():
+    global sudah_register
+    print("\n[3] Registrasi PENGGUNA")
+    username = input("Buat/masukkan username: ").strip()
+    if not username:
+        print("Username tidak boleh kosong.")
+        return
+    while True:
+        password = input("Masukkan password : ")
+        if len(password) >= 5:
+            break
+        print("Password terlalu pendek. Masukkan minimal 5 karakter.")
+    akun["username"] = username
+    akun["password"] = password
+    sudah_register = True
+    print("Register berhasil. Silakan pilih menu Masuk.")
+
+def pilih_item(daftar, judul):
+    if not daftar:
+        print("Pilihan tidak tersedia.")
+        return None
+    print("\n" + judul)
+    for nomor, item in enumerate(daftar, start=1):
+        print(f"{nomor}. {item}")
+    while True:
+        pilihan = input("Pilih nomor: ").strip()
+        if pilihan.isdigit() and 1 <= int(pilihan) <= len(daftar):
+            return daftar[int(pilihan) - 1]
+        print("Input tidak valid. Silakan pilih nomor yang tersedia.")
+
+def pilih_fokus():
+    print("\nPILIH FOKUS PERJALANAN (boleh memilih lebih dari satu)")
+    print("1. Seimbang")
+    print("2. Biaya termurah")
+    print("3. Waktu tercepat")
+    print("4. Kenyamanan")
+    print("Contoh pilihan gabungan: 2,3")
+    while True:
+        masukan = input("Pilihan: ").strip().replace(" ", "")
+        pilihan = masukan.split(",")
+        if pilihan and all(p in ["1", "2", "3", "4"] for p in pilihan):
+            return list(dict.fromkeys(pilihan))
+        print("Pilihan salah. Masukkan nomor 1-4 dan pisahkan dengan koma.")
