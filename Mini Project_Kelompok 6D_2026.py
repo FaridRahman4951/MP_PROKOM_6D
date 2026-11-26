@@ -105,7 +105,7 @@ def register():
     print("\n[3] Registrasi PENGGUNA")
     username = input("Buat/masukkan username: ").strip()
     if not username:
-        print("Username tidak boleh kosong.")
+        print("Username ga leh kosong.")
         return
     while True:
         password = input("Masukkan password : ")
