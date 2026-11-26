@@ -20,27 +20,20 @@ def baca_file():
     if not os.path.isfile(NAMA_FILE) or not os.access(NAMA_FILE, os.R_OK):
         print("File tidak dapat dibaca.")
         return None
-
     with open(NAMA_FILE, "r", newline="", encoding="utf-8-sig") as file:
         pembaca = csv.DictReader(file)
         if not pembaca.fieldnames:
             print("File kosong atau tidak memiliki header.")
             return None
-
-        kolom_hilang = [k for k in KOLOM_WAJIB if k not in pembaca.fieldnames]
-        if kolom_hilang:
-            print("Kolom CSV tidak lengkap:", ", ".join(kolom_hilang))
+        hilang = [k for k in KOLOM_WAJIB if k not in pembaca.fieldnames]
+        if hilang:
+            print("Kolom CSV tidak lengkap:", ", ".join(hilang))
             return None
-
         data = list(pembaca)
-
     if not data:
         print("Tidak ada data pada file CSV.")
         return None
 
-    return data
-
-def validasi_data(data):
     masalah = []
     id_ditemukan = set()
     for nomor, baris in enumerate(data, start=2):
@@ -48,98 +41,44 @@ def validasi_data(data):
             if not str(baris.get(kolom, "")).strip():
                 masalah.append(f"Baris {nomor}: {kolom} kosong.")
         trip_id = str(baris.get("trip_id", "")).strip()
-
         if trip_id in id_ditemukan:
             masalah.append(f"Baris {nomor}: trip_id duplikat.")
-
         elif trip_id:
             id_ditemukan.add(trip_id)
-
         for kolom in KOLOM_ANGKA:
             nilai = angka(baris.get(kolom, ""))
-
             if nilai is None:
                 masalah.append(f"Baris {nomor}: {kolom} bukan angka valid.")
-
             elif nilai < 0:
                 masalah.append(f"Baris {nomor}: {kolom} tidak boleh negatif.")
-
         for kolom in ["transit_efficiency_index", "crowding_discomfort_score"]:
             nilai = angka(baris.get(kolom, ""))
             if nilai is not None and not 0 <= nilai <= 10:
                 masalah.append(f"Baris {nomor}: {kolom} harus bernilai 0-10.")
-
         jadwal = angka(baris.get("scheduled_duration_minutes", ""))
         aktual = angka(baris.get("actual_duration_minutes", ""))
         terlambat = angka(baris.get("delay_minutes", ""))
-
         if None not in (jadwal, aktual, terlambat):
             if round(aktual - jadwal, 2) != round(terlambat, 2):
                 masalah.append(f"Baris {nomor}: nilai delay tidak sesuai.")
+
     if masalah:
         print("Data belum valid. Ditemukan", len(masalah), "masalah:")
         for item in masalah[:25]:
             print("-", item)
         if len(masalah) > 25:
             print("Masih ada", len(masalah) - 25, "masalah lainnya.")
-        return False
-    print("Seluruh data dinyatakan valid.")
-    return True
+        return None
+    print("Seluruh data valid.")
+    return data
 
 def angka(nilai):
     teks = str(nilai).strip()
     if not teks:
         return None
-    
     bersih = teks[1:] if teks.startswith("-") else teks
     if not bersih or bersih.count(".") > 1:
         return None
-    
     if not bersih.replace(".", "").isdigit():
         return None
-    
     return float(teks)
-
-def register():
-    global sudah_register
-    print("\n[3] Registrasi PENGGUNA")
-    username = input("Buat/masukkan username: ").strip()
-    if not username:
-        print("Username ga leh kosong.")
-        return
-    while True:
-        password = input("Masukkan password : ")
-        if len(password) >= 5:
-            break
-        print("Password terlalu pendek. Masukkan minimal 5 karakter.")
-    akun["username"] = username
-    akun["password"] = password
-    sudah_register = True
-    print("Register berhasil. Silakan pilih menu Masuk.")
-
-def pilih_item(daftar, judul):
-    if not daftar:
-        print("Pilihan tidak tersedia.")
-        return None
-    print("\n" + judul)
-    for nomor, item in enumerate(daftar, start=1):
-        print(f"{nomor}. {item}")
-    while True:
-        pilihan = input("Pilih nomor: ").strip()
-        if pilihan.isdigit() and 1 <= int(pilihan) <= len(daftar):
-            return daftar[int(pilihan) - 1]
-        print("Input tidak valid. Silakan pilih nomor yang tersedia.")
-
-def pilih_fokus():
-    print("\nPILIH FOKUS PERJALANAN (boleh memilih lebih dari satu)")
-    print("1. Seimbang")
-    print("2. Biaya termurah")
-    print("3. Waktu tercepat")
-    print("4. Kenyamanan")
-    print("Contoh pilihan gabungan: 2,3")
-    while True:
-        masukan = input("Pilihan: ").strip().replace(" ", "")
-        pilihan = masukan.split(",")
-        if pilihan and all(p in ["1", "2", "3", "4"] for p in pilihan):
-            return list(dict.fromkeys(pilihan))
-        print("Pilihan salah. Masukkan nomor 1-4 dan pisahkan dengan koma.")
