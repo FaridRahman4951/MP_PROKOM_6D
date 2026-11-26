@@ -10,6 +10,41 @@ KOLOM_ANGKA = ["scheduled_duration_minutes", "actual_duration_minutes","delay_mi
 
 KRITERIA = {"1": ("Waktu perjalanan", "actual_duration_minutes", "cost"),"2": ("Biaya perjalanan", "ticket_fare_idr", "cost"),"3": ("Keterlambatan", "delay_minutes", "cost"),"4": ("Efisiensi transportasi", "transit_efficiency_index", "benefit"),"5": ("Kenyamanan/kepadatan", "crowding_discomfort_score", "cost")}
 
+def tampilkan_cover():
+    print("=" * 75)
+    print()
+    print("                         MINI PROJECT")
+    print("                    PEMROGRAMAN KOMPUTER")
+    print()
+    print("       SISTEM REKOMENDASI TRANSPORTASI PUBLIK DI JAKARTA")
+    print("       BERDASARKAN STASIUN ASAL DAN TUJUAN")
+    print("                    MENGGUNAKAN PYTHON")
+    print()
+    print()
+    print("                              OLEH")
+    print("                          KELOMPOK 6D")
+    print()
+    print("                            ANGGOTA:")
+    print("            Farid Rahman                   2610932019")
+    print("            Meisya Khalista Mayari         2610933009")
+    print("            Gallant Habiburrahman Almadina 2610933033")
+    print("            Shaniya Roliya Rizky           2610933045")
+    print()
+    print("                       ASISTEN PEMBIMBING:")
+    print("                       Kurnia Rahmat Ilahi")
+    print("                          Faiza Mumtaz")
+    print()
+    print("                         DOSEN PENGAMPU:")
+    print("                    Ikhwan Arief, S.T., M.Sc")
+    print()
+    print("            LABORATORIUM SISTEM INFORMASI DAN KEPUTUSAN")
+    print("                    DEPARTEMEN TEKNIK INDUSTRI")
+    print("                         FAKULTAS TEKNIK")
+    print("                       UNIVERSITAS ANDALAS")
+    print("                               2026")
+    print()
+    print("=" * 75)
+
 def baca_file():
     if not os.path.exists(NAMA_FILE):
         print("File tidak ditemukan. Periksa kembali lokasi file.")
@@ -31,43 +66,76 @@ def baca_file():
         print("Tidak ada data pada file CSV.")
         return None
 
-    masalah = []
     id_ditemukan = set()
+    data_valid = []
+    jumlah_dilewati = 0
+
     for nomor, baris in enumerate(data, start=2):
-        for kolom in KOLOM_WAJIB:
-            if not str(baris.get(kolom, "")).strip():
-                masalah.append(f"Baris {nomor}: {kolom} kosong.")
+        masalah_baris = []
+
+        kolom_kosong = [
+            kolom for kolom in KOLOM_WAJIB
+            if not str(baris.get(kolom, "")).strip()
+        ]
+        for kolom in kolom_kosong:
+            masalah_baris.append(f"Baris {nomor}: {kolom} kosong.")
+
         trip_id = str(baris.get("trip_id", "")).strip()
-        if trip_id in id_ditemukan:
-            masalah.append(f"Baris {nomor}: trip_id duplikat.")
-        elif trip_id:
-            id_ditemukan.add(trip_id)
+        if trip_id:
+            if trip_id in id_ditemukan:
+                masalah_baris.append(f"Baris {nomor}: trip_id duplikat.")
+            else:
+                id_ditemukan.add(trip_id)
+
         for kolom in KOLOM_ANGKA:
             nilai = angka(baris.get(kolom, ""))
             if nilai is None:
-                masalah.append(f"Baris {nomor}: {kolom} bukan angka valid.")
+                if kolom not in kolom_kosong:
+                    masalah_baris.append(
+                        f"Baris {nomor}: {kolom} bukan angka valid."
+                    )
             elif nilai < 0:
-                masalah.append(f"Baris {nomor}: {kolom} tidak boleh negatif.")
+                masalah_baris.append(
+                    f"Baris {nomor}: {kolom} tidak boleh negatif."
+                )
+
         for kolom in ["transit_efficiency_index", "crowding_discomfort_score"]:
             nilai = angka(baris.get(kolom, ""))
             if nilai is not None and not 0 <= nilai <= 10:
-                masalah.append(f"Baris {nomor}: {kolom} harus bernilai 0-10.")
+                masalah_baris.append(
+                    f"Baris {nomor}: {kolom} harus bernilai 0-10."
+                )
+
         jadwal = angka(baris.get("scheduled_duration_minutes", ""))
         aktual = angka(baris.get("actual_duration_minutes", ""))
         terlambat = angka(baris.get("delay_minutes", ""))
         if None not in (jadwal, aktual, terlambat):
             if round(aktual - jadwal, 2) != round(terlambat, 2):
-                masalah.append(f"Baris {nomor}: nilai delay tidak sesuai.")
+                masalah_baris.append(
+                    f"Baris {nomor}: nilai delay tidak sesuai."
+                )
 
-    if masalah:
-        print("Data belum valid. Ditemukan", len(masalah), "masalah:")
-        for item in masalah[:25]:
-            print("-", item)
-        if len(masalah) > 25:
-            print("Masih ada", len(masalah) - 25, "masalah lainnya.")
+        if masalah_baris:
+            jumlah_dilewati += 1
+            print(f"Baris {nomor} dilewati karena data tidak valid:")
+            for item in masalah_baris:
+                print("-", item)
+            continue
+
+        data_valid.append(baris)
+
+    if not data_valid:
+        print("Tidak ada data valid yang dapat diproses.")
+        print(f"Jumlah baris yang dilewati: {jumlah_dilewati}.")
         return None
-    print("Seluruh data valid.")
-    return data
+
+    if jumlah_dilewati > 0:
+        print(f"Ditemukan {jumlah_dilewati} baris yang kosong atau tidak valid.")
+        print(f"{len(data_valid)} baris valid akan tetap diproses.")
+    else:
+        print("Seluruh data valid.")
+
+    return data_valid
 
 def angka(nilai):
     teks = str(nilai).strip()
@@ -323,6 +391,7 @@ class SistemTransportasi:
                 print("Pilihan tidak tersedia. Masukkan nomor 1-3.")
 
 def main():
+    tampilkan_cover()
     data = baca_file()
     if data is None:
         return
