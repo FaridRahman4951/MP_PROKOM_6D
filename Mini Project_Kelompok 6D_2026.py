@@ -82,3 +82,41 @@ def angka(nilai):
     if not bersih.replace(".", "").isdigit():
         return None
     return float(teks)
+
+def pilih_item(daftar, judul):
+    if not daftar:
+        print("Pilihan tidak tersedia.")
+        return None
+    print("\n" + judul)
+    for nomor, item in enumerate(daftar, start=1):
+        print(f"{nomor}. {item}")
+    while True:
+        pilihan = input("Pilih nomor: ").strip()
+        if pilihan.isdigit() and 1 <= int(pilihan) <= len(daftar):
+            return daftar[int(pilihan) - 1]
+        print("Input tidak valid. Silakan pilih nomor yang tersedia.")
+
+def pilih_fokus_dan_bobot():
+    daftar_bobot = {
+        "1": {"1": 0.20, "2": 0.20, "3": 0.20, "4": 0.20, "5": 0.20},
+        "2": {"1": 0.15, "2": 0.50, "3": 0.15, "4": 0.10, "5": 0.10},
+        "3": {"1": 0.50, "2": 0.15, "3": 0.20, "4": 0.10, "5": 0.05},
+        "4": {"1": 0.10, "2": 0.10, "3": 0.10, "4": 0.35, "5": 0.35}}
+    
+    print("PILIH FOKUS PERJALANAN (boleh memilih lebih dari satu)")
+    print("1. Seimbang")
+    print("2. Biaya termurah")
+    print("3. Waktu tercepat")
+    print("4. Kenyamanan")
+    print("Contoh pilihan gabungan: 2,3")
+    while True:
+        masukan = input("Pilihan: ").strip().replace(" ", "")
+        pilihan = masukan.split(",")
+        if pilihan and all(p in ["1", "2", "3", "4"] for p in pilihan):
+            fokus = list(dict.fromkeys(pilihan))
+            bobot = {
+                k: sum(daftar_bobot[f][k] for f in fokus) / len(fokus)
+                for k in KRITERIA
+            }
+            return fokus, bobot
+        print("Pilihan salah. Masukkan nomor 1-4 dan pisahkan dengan koma.")
