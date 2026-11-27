@@ -126,7 +126,7 @@ Untuk memperoleh rekomendasi transportasi:
 -   Lokasi dataset perlu disesuaikan secara manual melalui variabel
     NAMA_FILE sebelum program dijalankan pada komputer lain
 
-12. Pengembang
+11. Pengembang
 
 Kelompok 6D 
 
